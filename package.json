@@ -1,0 +1,19 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
+  "main": "next.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "next": "^15.5.4",
+    "next-mdx-remote": "^5.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  }
+}
