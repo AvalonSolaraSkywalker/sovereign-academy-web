@@ -1,36 +1,47 @@
-/** src/lib/mdx.ts */
-import matter from 'gray-matter';
-import { serialize } from 'next-mdx-remote/serialize';
-import remarkGfm from 'remark-gfm';
+// frontend/src/lib/mdx.ts
+
+import { promises as fs } from 'node:fs';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import rehypeStringify from 'rehype-stringify';
 import rehypeHighlight from 'rehype-highlight';
-import { MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { remark } from 'remark';
-import { remarkRehype } from 'remark-rehype';
 import { unified } from 'unified';
+import { serialize } from 'next-mdx-remote/serialize';
+import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
-/**
- * Reads a markdown string, extracts front‑matter with gray‑matter,
- * then serialises it for `next-mdx-remote`.
- *
- * @param source   Raw markdown content
- * @returns        An object containing the serialized MDX source and the parsed front‑matter
- */
-export async function getMdxContent(
-  source: string
-): Promise<{
+export interface BaseFrontMatter {
+  title?: string;
+  date?: string;
+  description?: string;
+  [key: string]: unknown;
+}
+
+export type MdxPayload<T extends Record<string, unknown> = BaseFrontMatter> = {
   mdxSource: MDXRemoteSerializeResult;
-  frontMatter: Record<string, unknown>;
-}> {
-  // Parse front‑matter
-  const { data, content } = matter(source);
+  frontMatter: T;
+};
 
-  // Serialize MDX (you can add remark/rehype plugins here)
-  const mdxSource = await serialize(content, {
-    // You can pass remark/rehype plugins if you need them:
-    // remarkPlugins: [remarkGfm],
-    // rehypePlugins: [rehypeHighlight],
-    // Or keep it empty for a plain pass‑through
-  });
+export async function getMdxContent<
+  T extends Record<string, unknown> = BaseFrontMatter
+>(path: string, opts?: Record<string, unknown>): Promise<MdxPayload<T>> {
+  const raw = await fs.readFile(path, 'utf8');
 
-  return { mdxSource, frontMatter: data };
+  const processor = unified()
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(rehypeHighlight)
+    .use(rehypeStringify);
+
+  const file = await processor.process(raw);
+  const html = file.toString();
+
+  const serializeOpts = {
+    parseFrontMatter: true,
+    ...(opts ?? {})
+  };
+
+  const mdxSource = await serialize(html, serializeOpts as any);
+  const frontMatter = (mdxSource?.frontmatter ?? {}) as T;
+
+  return { mdxSource, frontMatter };
 }
