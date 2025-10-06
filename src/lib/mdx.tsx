@@ -1,4 +1,5 @@
 // frontend/src/lib/mdx.ts
+import { something } from '@/lib/mdx';
 import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
