@@ -53,7 +53,7 @@ const allowedSchema = {
     img: ['src', 'alt', 'width', 'height'],
     iframe: ['src', 'allow', 'allowfullscreen', 'width', 'height'],
     svg: ['viewBox', 'xmlns'],
-    // Allow a few generic attributes on *any* element
+    // Generic attributes allowed on any element
     '*': ['class', 'style', 'id', 'title', 'role', 'aria-label', 'aria-hidden'],
   },
 
@@ -91,7 +91,7 @@ export async function getMdxContent(
         [
           rehypeRaw,
           {
-            // These are the node types that `rehype‑raw` is allowed to keep.
+            // Node types that `rehype‑raw` is allowed to keep.
             passThrough: ['element', 'comment', 'text', 'raw'],
           },
         ],
