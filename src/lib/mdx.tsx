@@ -1,6 +1,8 @@
-/* -------------------------------------------------------------
-   MDX utilities for the Sovereign Academy site
-   ------------------------------------------------------------- */
+   //* -------------------------------------------------------------
+  //  MDX utilities for the Sovereign Academy site
+  // ------------------------------------------------------------- *//
+
+// frontend/src/lib/mdx.ts
 
 import fs from 'fs/promises';
 import path from 'path';
@@ -12,33 +14,30 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrism from 'rehype-prism-plus';
 import rehypeRaw from 'rehype-raw';
-// import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import type { Pluggable } from 'unified';
 
-/* -------------------------------------------------------------
-   1️⃣ (Optional) Sanitisation schema – keep it handy for later.
-   ------------------------------------------------------------- */
-// const allowedSchema = {
-//   ...defaultSchema,
-//   tagNames: [
-//     'a',
-//     'p',
-//     'strong',
-//     'em',
-//     'ul',
-//     'ol',
-//     'li',
-//     'blockquote',
-//     'iframe',
-//     'svg',
-//   ],
-//   attributes: {
-//     a: ['href', 'title', 'target', 'rel'],
-//     iframe: ['src', 'allow', 'allowfullscreen', 'width', 'height'],
-//     svg: ['viewBox', 'xmlns'],
-//   },
-//   // allowDangerousHtml: true, // enable when you re‑enable the sanitizer
-// };
+const allowedSchema = {
+   ...defaultSchema,
+     tagNames: [
+     'a',
+     'p',
+     'strong',
+     'em',
+     'ul',
+     'ol',
+     'li',
+     'blockquote',
+     'iframe',
+     'svg',
+   ],
+   attributes: {
+     a: ['href', 'title', 'target', 'rel'],
+     iframe: ['src', 'allow', 'allowfullscreen', 'width', 'height'],
+     svg: ['viewBox', 'xmlns'],
+   },
+   allowDangerousHtml: true,
+ };
 
 /* -------------------------------------------------------------
    2️⃣ Front‑matter shape – extend if you want stricter typing.
@@ -59,26 +58,19 @@ export async function getMdxContent(
   const { data, content } = matter(raw);
   const frontMatter: FrontMatter = data as FrontMatter;
 
-  // -----------------------------------------------------------------
-  // MDX‑specific options – note the **clean** rehypeRaw usage
-  // -----------------------------------------------------------------
   const source = await serialize(content, {
     parseFrontmatter: true,
     // ──────── MDX‑SPECIFIC OPTIONS ────────
     mdxOptions: {
-      // `format: 'mdx'` is the default; you can omit it.
       remarkPlugins: [remarkGfm],
       rehypePlugins: [
-        // 1️⃣ Allow raw HTML – no custom `passThrough` needed.
         rehypeRaw,
 
-        // 2️⃣ Normal transformations.
         rehypeSlug,
         rehypeAutolinkHeadings,
         rehypePrism,
 
-        // 3️⃣ OPTIONAL sanitiser – uncomment when you’re ready.
-        // [rehypeSanitize, allowedSchema],
+        [rehypeSanitize, allowedSchema],
       ] as Pluggable[],
     },
   } as any); // casting to any silences TS‑missing‑format typings
