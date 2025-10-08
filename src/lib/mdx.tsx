@@ -2,8 +2,6 @@
    MDX utilities for the Sovereign Academy site
    ------------------------------------------------------------- */
 
-// frontend/src/lib/mdx.ts
-
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
@@ -23,105 +21,44 @@ import type { Pluggable } from 'unified';
 const allowedSchema = {
   ...defaultSchema,
 
-  // All HTML elements we want to allow in MDX.
+  // ---- ALL tags you may embed in MDX ---------------------------------
   tagNames: [
     // Text‑level semantics
-    'a',
-    'abbr',
-    'b',
-    'strong',
-    'i',
-    'em',
-    'cite',
-    'code',
-    'dfn',
-    'kbd',
-    'mark',
-    'q',
-    's',
-    'samp',
-    'small',
-    'span',
-    'sub',
-    'sup',
-    'u',
-    'var',
+    'a', 'abbr', 'b', 'strong', 'i', 'em', 'cite', 'code', 'dfn',
+    'kbd', 'mark', 'q', 's', 'samp', 'small', 'span', 'sub', 'sup',
+    'u', 'var',
     // Structural / grouping
-    'div',
-    'p',
-    'blockquote',
-    'hr',
-    'pre',
-    'section',
-    'article',
-    'aside',
-    'header',
-    'footer',
-    'nav',
-    'main',
+    'div', 'p', 'blockquote', 'hr', 'pre', 'section', 'article',
+    'aside', 'header', 'footer', 'nav', 'main',
     // Lists
-    'ul',
-    'ol',
-    'li',
-    'dl',
-    'dt',
-    'dd',
+    'ul', 'ol', 'li', 'dl', 'dt', 'dd',
     // Tables
-    'table',
-    'thead',
-    'tbody',
-    'tfoot',
-    'tr',
-    'th',
-    'td',
+    'table', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td',
     // Media
-    'img',
-    'svg',
-    'picture',
-    'source',
-    'audio',
-    'video',
-    'track',
+    'img', 'svg', 'picture', 'source', 'audio', 'video', 'track',
     'iframe',
-    // Form‑related (rarely needed in MDX but harmless)
-    'form',
-    'input',
-    'textarea',
-    'button',
-    'select',
-    'option',
-    'optgroup',
-    'label',
-    'fieldset',
-    'legend',
+    // Forms (rarely needed but harmless)
+    'form', 'input', 'textarea', 'button', 'select', 'option',
+    'optgroup', 'label', 'fieldset', 'legend',
     // Miscellaneous
-    'br',
-    'wbr',
-    'details',
-    'summary',
-    'dialog',
-    'canvas',
-    'meter',
-    'progress',
-    'time',
-    'output',
+    'br', 'wbr', 'details', 'summary', 'dialog', 'canvas',
+    'meter', 'progress', 'time', 'output',
     // Deprecated but sometimes used
-    'center',
-    'font',
+    'center', 'font',
   ],
 
-  // Attributes we allow for the tags above.
+  // ---- Attributes we allow for the tags above -------------------------
   attributes: {
     a: ['href', 'title', 'target', 'rel'],
     img: ['src', 'alt', 'width', 'height'],
     iframe: ['src', 'allow', 'allowfullscreen', 'width', 'height'],
     svg: ['viewBox', 'xmlns'],
-    // Generic attributes that are safe for most tags
+    // Allow a few generic attributes on *any* element
     '*': ['class', 'style', 'id', 'title', 'role', 'aria-label', 'aria-hidden'],
   },
 
-  // Allow raw HTML nodes to survive the sanitiser – we already whitelist
-  // everything we care about, so this is safe.
+  // Because we already whitelist everything we care about,
+  // we can safely allow the raw HTML nodes to survive.
   allowDangerousHtml: true,
 };
 
@@ -150,13 +87,21 @@ export async function getMdxContent(
     mdxOptions: {
       remarkPlugins: [remarkGfm],
       rehypePlugins: [
-        // 1️⃣ Allow raw HTML – the whitelist above tells rehype‑raw which tags to keep.
-        rehypeRaw,
+        // 1️⃣ Allow raw HTML – we must give it a `passThrough` whitelist.
+        [
+          rehypeRaw,
+          {
+            // These are the node types that `rehype‑raw` is allowed to keep.
+            passThrough: ['element', 'comment', 'text', 'raw'],
+          },
+        ],
+
         // 2️⃣ Normal transformations.
         rehypeSlug,
         rehypeAutolinkHeadings,
         rehypePrism,
-        // 3️⃣ Sanitise according to our exhaustive schema.
+
+        // 3️⃣ Sanitize according to our exhaustive schema.
         [rehypeSanitize, allowedSchema],
       ] as Pluggable[],
     },
@@ -180,11 +125,18 @@ export async function getMdxSource(
     mdxOptions: {
       remarkPlugins: [remarkGfm],
       rehypePlugins: [
-        rehypeRaw,
+        // Same raw‑HTML pass‑through configuration
+        [
+          rehypeRaw,
+          {
+            passThrough: ['element', 'comment', 'text', 'raw'],
+          },
+        ],
         rehypeSlug,
         rehypeAutolinkHeadings,
         rehypePrism,
-        // [rehypeSanitize, allowedSchema], // keep commented if you want to disable sanitisation temporarily
+        // You can keep the sanitizer active here as well:
+        // [rehypeSanitize, allowedSchema],
       ] as Pluggable[],
     },
     // Any extra variables you want available inside the MDX.
