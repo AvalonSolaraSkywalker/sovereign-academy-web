@@ -1,6 +1,6 @@
-   //* -------------------------------------------------------------
-  //  MDX utilities for the Sovereign Academy site
-  // ------------------------------------------------------------- *//
+/* -------------------------------------------------------------
+   MDX utilities for the Sovereign Academy site
+   ------------------------------------------------------------- */
 
 // frontend/src/lib/mdx.ts
 
@@ -17,27 +17,113 @@ import rehypeRaw from 'rehype-raw';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import type { Pluggable } from 'unified';
 
+/* -------------------------------------------------------------
+   1️⃣ Sanitisation schema – whitelist every HTML tag you might use
+   ------------------------------------------------------------- */
 const allowedSchema = {
-   ...defaultSchema,
-     tagNames: [
-     'a',
-     'p',
-     'strong',
-     'em',
-     'ul',
-     'ol',
-     'li',
-     'blockquote',
-     'iframe',
-     'svg',
-   ],
-   attributes: {
-     a: ['href', 'title', 'target', 'rel'],
-     iframe: ['src', 'allow', 'allowfullscreen', 'width', 'height'],
-     svg: ['viewBox', 'xmlns'],
-   },
-   allowDangerousHtml: true,
- };
+  ...defaultSchema,
+
+  // All HTML elements we want to allow in MDX.
+  tagNames: [
+    // Text‑level semantics
+    'a',
+    'abbr',
+    'b',
+    'strong',
+    'i',
+    'em',
+    'cite',
+    'code',
+    'dfn',
+    'kbd',
+    'mark',
+    'q',
+    's',
+    'samp',
+    'small',
+    'span',
+    'sub',
+    'sup',
+    'u',
+    'var',
+    // Structural / grouping
+    'div',
+    'p',
+    'blockquote',
+    'hr',
+    'pre',
+    'section',
+    'article',
+    'aside',
+    'header',
+    'footer',
+    'nav',
+    'main',
+    // Lists
+    'ul',
+    'ol',
+    'li',
+    'dl',
+    'dt',
+    'dd',
+    // Tables
+    'table',
+    'thead',
+    'tbody',
+    'tfoot',
+    'tr',
+    'th',
+    'td',
+    // Media
+    'img',
+    'svg',
+    'picture',
+    'source',
+    'audio',
+    'video',
+    'track',
+    'iframe',
+    // Form‑related (rarely needed in MDX but harmless)
+    'form',
+    'input',
+    'textarea',
+    'button',
+    'select',
+    'option',
+    'optgroup',
+    'label',
+    'fieldset',
+    'legend',
+    // Miscellaneous
+    'br',
+    'wbr',
+    'details',
+    'summary',
+    'dialog',
+    'canvas',
+    'meter',
+    'progress',
+    'time',
+    'output',
+    // Deprecated but sometimes used
+    'center',
+    'font',
+  ],
+
+  // Attributes we allow for the tags above.
+  attributes: {
+    a: ['href', 'title', 'target', 'rel'],
+    img: ['src', 'alt', 'width', 'height'],
+    iframe: ['src', 'allow', 'allowfullscreen', 'width', 'height'],
+    svg: ['viewBox', 'xmlns'],
+    // Generic attributes that are safe for most tags
+    '*': ['class', 'style', 'id', 'title', 'role', 'aria-label', 'aria-hidden'],
+  },
+
+  // Allow raw HTML nodes to survive the sanitiser – we already whitelist
+  // everything we care about, so this is safe.
+  allowDangerousHtml: true,
+};
 
 /* -------------------------------------------------------------
    2️⃣ Front‑matter shape – extend if you want stricter typing.
@@ -64,12 +150,13 @@ export async function getMdxContent(
     mdxOptions: {
       remarkPlugins: [remarkGfm],
       rehypePlugins: [
+        // 1️⃣ Allow raw HTML – the whitelist above tells rehype‑raw which tags to keep.
         rehypeRaw,
-
+        // 2️⃣ Normal transformations.
         rehypeSlug,
         rehypeAutolinkHeadings,
         rehypePrism,
-
+        // 3️⃣ Sanitise according to our exhaustive schema.
         [rehypeSanitize, allowedSchema],
       ] as Pluggable[],
     },
@@ -97,7 +184,7 @@ export async function getMdxSource(
         rehypeSlug,
         rehypeAutolinkHeadings,
         rehypePrism,
-        // [rehypeSanitize, allowedSchema],
+        // [rehypeSanitize, allowedSchema], // keep commented if you want to disable sanitisation temporarily
       ] as Pluggable[],
     },
     // Any extra variables you want available inside the MDX.
