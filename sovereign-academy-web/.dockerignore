@@ -1,0 +1,11 @@
+node_modules
+.pnpm-store
+.next
+Dockerfile
+.git
+.gitignore
+README.md
+*.log
+*.md
+*.yml
+*.yaml
