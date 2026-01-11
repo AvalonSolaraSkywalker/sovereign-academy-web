@@ -1,0 +1,347 @@
+tap "cidertool/tap"
+tap "mongodb/brew"
+tap "romkatv/powerlevel10k"
+# Run your GitHub Actions locally
+brew "act"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Command-line interface for SQLite
+brew "sqlite"
+# Download with resuming and segmented downloading
+brew "aria2"
+# Record and share terminal sessions
+brew "asciinema"
+# Distributed revision control system
+brew "git"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
+brew "asdf"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
+# Perf monitoring CLI tool for Apple Silicon
+brew "asitop"
+# Automatic configure script builder
+brew "autoconf"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# Bash scripts that integrate bat with various command-line tools
+brew "bat-extras"
+# Python code formatter
+brew "black"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Emacs dependency management
+brew "cask"
+# Create and view interactive cheat sheets for *nix commands
+brew "cheat"
+# Anti-virus software
+brew "clamav"
+# Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript
+brew "clang-format"
+# Cross-platform make
+brew "cmake"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# Generic library support script
+brew "libtool"
+# General-purpose scripting language
+brew "php"
+# Dependency Manager for PHP
+brew "composer"
+# Apjanke's fork of the classic cowsay project
+brew "cowsay"
+# Static analysis of C and C++ code
+brew "cppcheck"
+# Suite of command-line tools for converting to and working with CSV
+brew "csvkit"
+# Good-lookin' diffs with diff-highlight and more
+brew "diff-so-fancy"
+# Load/unload environment variables based on $PWD
+brew "direnv"
+# Pack, ship and run any application as a lightweight container
+brew "docker", link: false
+# Isolated development environments using Docker
+brew "docker-compose"
+# Select default apps for documents and URL schemes on macOS
+brew "duti"
+# Run arbitrary commands when files change
+brew "entr"
+# Modern, maintained replacement for ls
+brew "eza"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Identify or delete duplicate files
+brew "fdupes"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+# Create thumbnails for your video files
+brew "ffmpegthumbnailer"
+# Banner-like program prints strings as ASCII art
+brew "figlet"
+# Collection of GNU find, xargs, and locate
+brew "findutils"
+# Infamous electronic fortune-cookie generator
+brew "fortune"
+# Monitor a directory for changes and run a shell command
+brew "fswatch"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU compiler collection
+brew "gcc"
+# GitHub command-line tool
+brew "gh"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
+# Git extension for versioning large files
+brew "git-lfs"
+# Prevents you from committing sensitive information to a git repo
+brew "git-secrets"
+# Alternative to top/htop
+brew "glances"
+# Render markdown on the CLI
+brew "glow"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Fast linters runner for Go
+brew "golangci-lint"
+# Development kit for the Java programming language
+brew "openjdk"
+# Open-source build automation tool based on the Groovy and Kotlin DSL
+brew "gradle"
+# Gorgeous metric visualizations and dashboards for timeseries databases
+brew "grafana"
+# Smarter Dockerfile linter to validate best practices
+brew "hadolint"
+# Kubernetes package manager
+brew "helm"
+# Improved top (interactive process viewer)
+brew "htop"
+# User-friendly cURL replacement (command-line HTTP client)
+brew "httpie"
+# Curl statistics made simple
+brew "httpstat"
+# Website copier/offline browser
+brew "httrack"
+# Add GitHub support to git on the command-line
+brew "hub"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
+# Top clone for MySQL
+brew "innotop"
+# Sort Python imports automatically
+brew "isort"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Handy way to save and run project-specific commands
+brew "just"
+# Kubernetes CLI To Manage Your Clusters In Style!
+brew "k9s"
+# User-friendly front-end to ssh-agent(1)
+brew "keychain"
+# Run local Kubernetes cluster in Docker
+brew "kind"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Fast and powerful Git hooks manager for any type of projects
+brew "lefthook"
+# Next-gen compiler infrastructure
+brew "llvm"
+# Rainbows and unicorns in your console!
+brew "lolcat"
+# Utility for directing compilation
+brew "make"
+# Mac App Store command-line interface
+brew "mas"
+# Java-based project management
+brew "maven"
+# Show markdown documents on text terminals
+brew "mdcat"
+# Run a Kubernetes cluster locally
+brew "minikube"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Open source relational database management system
+brew "mysql"
+# NCurses Disk Usage
+brew "ncdu"
+# Fast, highly customisable system info script
+brew "neofetch"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
+brew "nginx"
+# Network grep
+brew "ngrep"
+# Small build system for use with gyp or CMake
+brew "ninja"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node@20"
+# Node.js version manager
+brew "nodenv"
+# Development kit for the Java programming language
+brew "openjdk@17"
+# 7-Zip (high compression file archiver) implementation
+brew "p7zip"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
+# QR Code generation
+brew "qrencode"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Password manager
+brew "pass"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# Python package management tool
+brew "poetry"
+# Object-relational database system
+brew "postgresql@14"
+# Theme for zsh
+brew "powerlevel10k"
+# Framework for managing multi-language pre-commit hooks
+brew "pre-commit"
+# Service monitoring system and time series database
+brew "prometheus"
+# Python version management
+brew "pyenv"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
+# Ruby version manager
+brew "rbenv"
+# Reattach process (e.g., tmux) to background
+brew "reattach-to-user-namespace"
+# Persistent key-value database, with built-in net interface
+brew "redis"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Safe, concurrent, practical language
+brew "rust"
+# Rust toolchain installer
+brew "rustup"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# CLI and dbus interface for WhisperSystems/libsignal-service-java
+brew "signal-cli"
+# SOund eXchange: universal sound sample translator
+brew "sox"
+# Command-line interface for https://speedtest.net bandwidth tests
+brew "speedtest-cli"
+# Add a public key to a remote machine's authorized_keys file
+brew "ssh-copy-id"
+# Cross-shell prompt for astronauts
+brew "starship"
+# System-level exploration and troubleshooting tool
+brew "sysdig"
+# Feature-rich console based todo list manager
+brew "task"
+# Send macOS User Notifications from the command-line
+brew "terminal-notifier"
+# Programmatically correct mistyped console commands
+brew "thefuck"
+# Simplified and community-driven man pages
+brew "tldr"
+# Terminal multiplexer
+brew "tmux"
+# CLI tool that moves files or folder to the trash
+brew "trash"
+# Ultra fast grep with query UI, fuzzy search, archive search, and more
+brew "ugrep"
+# ASGI web server
+brew "uvicorn"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
+# Internet file retriever
+brew "wget"
+# JavaScript package manager
+brew "yarn"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
+# High-performance, schema-free, document-oriented database
+brew "mongodb/brew/mongodb-community"
+# Application launcher and productivity software
+cask "alfred"
+# Desktop password and login vault
+cask "bitwarden"
+# Clipboard extension app
+cask "clipy"
+# Multi-platform client-side cloud file encryption tool
+cask "cryptomator"
+# App to build and share containerised applications and microservices
+cask "docker-desktop"
+# Matrix collaboration client
+cask "element"
+# 256 colour painting program
+cask "grafx"
+# Desktop automation application
+cask "hammerspoon"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# JetBrains tools manager
+cask "jetbrains-toolbox"
+# Keyboard customiser
+cask "karabiner-elements"
+# Password manager app
+cask "keepassxc"
+# Find shortcuts for any installed application
+cask "keyclu"
+# Clipboard manager
+cask "maccy"
+# File system integration
+cask "macfuse"
+# Visual diff and merge tool
+cask "meld"
+# Rule-based global transparent proxy client
+cask "mellow"
+# Minimal installer for conda specific to conda-forge
+cask "miniforge"
+# PDF reader, editor and annotator
+cask "pdf-expert"
+# Collaboration platform for API development
+cask "postman"
+# Control your tools with a few keystrokes
+cask "raycast"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# Instant messaging application focusing on security
+cask "signal"
+# Text editor for code, markup and prose
+cask "sublime-text"
+# Disk encryption software focusing on security based on TrueCrypt
+cask "veracrypt"
+# Open-source code editor
+cask "visual-studio-code"
+# Video communication and virtual meeting platform
+cask "zoom"
+mas "GarageBand", id: 682658836
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "iMovie", id: 408981434
+mas "Prime Video", id: 545519333
+mas "Prime Video", id: 545519333
+mas "Telegram", id: 747648890
+mas "Telegram", id: 747648890
+vscode "github.copilot"
+vscode "github.copilot-chat"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-vscode-remote.remote-containers"
