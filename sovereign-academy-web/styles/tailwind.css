@@ -1,0 +1,62 @@
+/*=====================================================================
+  src/styles/tailwind.css
+  --------------------------------------------------------------
+/* ------------------------------------------------------------------
+   1️⃣ Tailwind’s core layers
+   ------------------------------------------------------------------ */
+
+/* Base – normalizes elements, sets sensible defaults */
+@tailwind base;
+
+/* Components – pre‑built component classes (buttons, forms, etc.) */
+@tailwind components;
+
+/* Utilities – all the atomic utility classes (margin, flex, colors…) */
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+   2️⃣ Optional global resets / tweaks (you can keep or remove)
+   ------------------------------------------------------------------ */
+
+/* A very light reset that plays nicely with Tailwind’s base layer.
+   Feel free to extend or replace it with your own preferences. */
+html,
+body {
+  @apply antialiased;
+}
+
+/* Ensure the root element takes the full height so utilities like
+   `h-screen` work as expected. */
+#root,
+html,
+body {
+  @apply h-full min-h-full;
+}
+
+/* ------------------------------------------------------------------
+   3️⃣ Custom component styles (optional)
+   ------------------------------------------------------------------ */
+
+/* Example: a reusable card component.
+   You can reference it in your markup with `class="card"` */
+  @layer components {
+    .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md p-6;
+  }
+}
+
+/* ------------------------------------------------------------------
+   4️⃣ Custom utility classes (optional)
+   ------------------------------------------------------------------ */
+
+/* Example: a utility for a consistent text‑stroke effect */
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: currentColor;
+  }
+}
+
+/* ------------------------------------------------------------------
+   5️⃣ End of file
+   ------------------------------------------------------------------ */
