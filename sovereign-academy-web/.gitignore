@@ -1,4 +1,13 @@
-# Next.js build artefacts
+# Build artefacts – never commit
 .next/
-out/
 node_modules/
+.pnpm-store/
+Dockerfile
+.dockerignore
+.git
+.gitignore
+README.md
+*.log
+*.md
+*.yml
+*.yaml
