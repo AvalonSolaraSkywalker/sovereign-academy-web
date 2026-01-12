@@ -1,6 +1,7 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
-RUN npm i -g pnpm
+# Install the same pnpm version you used locally
+RUN npm i -g pnpm@10.28.0
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 COPY . .
