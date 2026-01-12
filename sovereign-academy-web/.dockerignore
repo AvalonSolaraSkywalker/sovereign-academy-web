@@ -1,11 +1,12 @@
-node_modules
-.pnpm-store
-.next
+# Exclude build artefacts and dependencies
+node_modules/
+.pnpm-store/
+.next/
 Dockerfile
+.dockerignore
 .git
 .gitignore
 README.md
 *.log
 *.md
 *.yml
-*.yaml
