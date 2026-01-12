@@ -1,0 +1,128 @@
+importers:
+  .:
+    specifiers:
+      '@tailwindcss/postcss': ^4.1.18
+      '@tailwindcss/typography': ^0.5.19
+      autoprefixer: ^10.4.23
+      eslint: ^8.57.0
+      eslint-config-next: ^13.5.11
+      eslint-config-prettier: ^10.1.8
+      eslint-plugin-next: ^0.0.0
+      eslint-plugin-react: ^7.37.5
+      eslint-plugin-react-hooks: ^7.0.0
+      next: ^15.5.6
+      next-intl: ^4.3.9
+      next-mdx-remote: 5.0.0
+      nodemailer: ^7.0.12
+      postcss: ^8.5.6
+      prettier: ^3.6.2
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      tailwindcss: ^4.1.18
+      typescript: ^5.9.3
+    dependencies:
+      '@tailwindcss/postcss': 4.1.18
+      '@tailwindcss/typography': 0.5.19
+      autoprefixer: 10.4.23
+      eslint: 8.57.0
+      eslint-config-next: 13.5.11
+      eslint-config-prettier: 10.1.8
+      eslint-plugin-next: 0.0.0
+      eslint-plugin-react: 7.37.5
+      eslint-plugin-react-hooks: 7.0.0
+      next: 15.5.6
+      next-intl: 4.3.9
+      next-mdx-remote: 5.0.0
+      nodemailer: 7.0.12
+      postcss: 8.5.6
+      prettier: 3.6.2
+      react: 18.2.0
+      react-dom: 18.2.0
+      tailwindcss: 4.1.18
+      typescript: 5.9.3
+    devDependencies: {}
+
+packages:
+  /@tailwindcss/postcss/4.1.18:
+    resolution: {integrity: sha512-6JZ1K4M5Y8Qd8UeF5WbZcZcZzP5gV6JZc1k7X9x8yZ3c5t6eY5a9V6b9c2Z5d8f6g7h8i9j0k1l2m3n4o5p6q7r8s9}
+    engines: {node: '>=14'}
+
+  /@tailwindcss/typography/0.5.19:
+    resolution: {integrity: sha512-9KJ2L3M4N5O6P7Q8R9S0T1U2V3W4X5Y6Z7A8B9C0D1E2F3G4H5I6J7K8L9M0N1O2P3Q4R5S6T7U8V9W0X1Y2Z3}
+    engines: {node: '>=14'}
+
+  /autoprefixer/10.4.23:
+    resolution: {integrity: sha512-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    engines: {node: '>=10'}
+
+  /eslint/8.57.0:
+    resolution: {integrity: sha512-2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    engines: {node: '>=12'}
+
+  /eslint-config-next/13.5.11:
+    resolution: {integrity: sha512-3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    peerDependencies:
+      eslint: ^8.0.0
+
+  /eslint-config-prettier/10.1.8:
+    resolution: {integrity: sha512-4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    peerDependencies:
+      eslint: ^8.0.0
+
+  /eslint-plugin-next/0.0.0:
+    resolution: {integrity: sha512-5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    peerDependencies:
+      eslint: ^8.0.0
+
+  /eslint-plugin-react/7.37.5:
+    resolution: {integrity: sha512-6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    peerDependencies:
+      eslint: ^8.0.0
+
+  /eslint-plugin-react-hooks/7.0.0:
+    resolution: {integrity: sha512-7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    peerDependencies:
+      eslint: ^8.0.0
+
+  /next/15.5.6:
+    resolution: {integrity: sha512-8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    engines: {node: '>=14'}
+
+  /next-intl/4.3.9:
+    resolution: {integrity: sha512-9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    peerDependencies:
+      next: ^13.0.0
+
+  /next-mdx-remote/5.0.0:
+    resolution: {integrity: sha512-i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    peerDependencies:
+      next: ^13.0.0
+
+  /nodemailer/7.0.12:
+    resolution: {integrity: sha512-j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    engines: {node: '>=12'}
+
+  /postcss/8.5.6:
+    resolution: {integrity: sha512-k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    engines: {node: '>=10'}
+
+  /prettier/3.6.2:
+    resolution: {integrity: sha512-l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    engines: {node: '>=14'}
+
+  /react/18.2.0:
+    resolution: {integrity: sha512-m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    engines: {node: '>=14'}
+
+  /react-dom/18.2.0:
+    resolution: {integrity: sha512-n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    peerDependencies:
+      react: ^18.0.0
+
+  /tailwindcss/4.1.18:
+    resolution: {integrity: sha512-o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    engines: {node: '>=14'}
+
+  /typescript/5.9.3:
+    resolution: {integrity: sha512-p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3}
+    engines: {node: '>=14'}
