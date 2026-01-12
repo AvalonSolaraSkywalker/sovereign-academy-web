@@ -1,8 +1,16 @@
+FROM node:20-alpine AS regen-lock
+WORKDIR /app
+RUN npm i -g pnpm@10.28.0
+COPY package.json ./
+# Generate a fresh lockfile (no --frozen-lockfile)
+RUN pnpm install --lockfile-only
+
 FROM node:20-alpine AS builder
 WORKDIR /app
-# Install the same pnpm version you used locally
 RUN npm i -g pnpm@10.28.0
-COPY package.json pnpm-lock.yaml ./
+# Copy the freshly generated lockfile from the previous stage
+COPY --from=regen-lock /app/pnpm-lock.yaml ./pnpm-lock.yaml
+COPY package.json ./
 RUN pnpm install --frozen-lockfile
 COPY . .
 RUN pnpm build
