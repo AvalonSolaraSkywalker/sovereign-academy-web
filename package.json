@@ -2,6 +2,7 @@
   "name": "sovereign-academy-workspace",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.28.0",
   "workspaces": [
     "sovereign-academy-web",
     "sovereign-academy-api",
