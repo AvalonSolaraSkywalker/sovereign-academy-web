@@ -1,12 +1,15 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "pipeline": {
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": [],
+      "outputs": []
+    },
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
-    },
-    "dev": {
-      "cache": false
     },
     "lint": {
       "outputs": []
@@ -14,7 +17,5 @@
     "test": {
       "outputs": ["coverage/**"]
     }
-  },
-  "globalEnv": [],
-  "tasks": {}
+  }
 }
