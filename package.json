@@ -1,0 +1,20 @@
+{
+  "name": "sovereign-academy-workspace",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "sovereign-academy-web",
+    "sovereign-academy-api",
+    "sovereign-academy-shared-ui",
+    "sovereign-academy-docs"
+  ],
+  "scripts": {
+    "dev:all": "turbo run dev --parallel",
+    "build":   "turbo run build --parallel",
+    "lint":    "turbo run lint  --parallel",
+    "test":    "turbo run test  --parallel"
+  },
+  "devDependencies": {
+    "turbo": "^2.7.4"
+  }
+}
