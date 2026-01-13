@@ -1,0 +1,5 @@
+packages:
+  - sovereign-academy-web
+  - sovereign-academy-api
+  - sovereign-academy-shared-ui
+  - sovereign-academy-docs
