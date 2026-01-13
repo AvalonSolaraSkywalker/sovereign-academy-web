@@ -2,6 +2,7 @@
   "name": "sovereign-academy-web",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Sovereign Academy – Next.js front‑end",
   "main": "index.js",
   "scripts": {
